@@ -1,10 +1,12 @@
     <div class="col-xs-12 text-center" id="top-bar">
       <h1>Eat The Burger!!</h1>
-      <p>Burgers that are ready to eat are displayed on the left.  Add any burger to the list below once it is ready.  After the burger has been eaten select "Eat It" button to remove it from the aviaable list.  Be careful though- once the burger has been eaten it can't be added back! </p>
+      <p>
+        Burgers that are ready to be delivered are displayed on the left.  Add any burger to the list below once it is ready.  Select "Eat It" button to remove it from the available list.
+      </p>
     </div>
 
     <div class="col-xs-6 text-center" id="available">
-      <h2>Burgers available to eat!</h2>
+      <h2>Burgers Ready!</h2>
       <ul style="list-style-type:none;">
         {{#each burger_data}}
         {{#unless this.devoured}}
@@ -12,7 +14,7 @@
           {{this.id}}. {{this.burger_name}}
             <form method="POST" action="/burgers/update?_method=PUT" class="button-size">
               <input type="hidden" name="burger_id" type="text" value="{{this.id}}">
-              <button type="submit" class="btn btn-default">Eat IT!!</button>
+              <button type="submit" class="btn btn-default">Eat</button>
             </form>
         </li>
         {{/unless}}
@@ -39,7 +41,7 @@
   
   <div class="container" id="add">
     <div class="row">
-       <p id="userFav">Don't see a burger you want in the avaiable section-  Add your own burger below!!</p>
+       <p id="userFav">Add your own burger below!!</p>
       <div class="col-xs-12 text-center enter_section">
         <form action="/burgers/create" method="POST">
           <input type="text" name="burger_name" class="form-control" value="Enter your favorite here" id="enter_text">

@@ -4,7 +4,6 @@ var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
 var app = express();
-// app.use(express.static(__dirname + '/public'));
 app.use(express.static("public"));
 
 app.use(
@@ -22,8 +21,8 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/routes.js");
-app.use("/", routes);
-
 var port = 3000;
 app.listen(port);
+
+var routes = require("./controllers/routes.js");
+app.use("/", routes);
