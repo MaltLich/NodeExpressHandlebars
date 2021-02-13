@@ -1,5 +1,4 @@
 var connection = require("./connection.js");
-
 var orm = {
   all: function (tableInput, cb) {
     connection.query(
